@@ -3,13 +3,15 @@ notes_cli.py
 
 Terminal interface for the Personal Notes App.
 
+Version: 0.2.0
+
 This file handles user interaction through the command line.
 
 The actual note logic lives in notes_core.py so that the CLI and web interface
 can share the same behavior.
 """
 
-from notes_core import NoteStore
+from notes_core import APP_VERSION, NoteStore
 
 
 def show_menu(store):
@@ -18,7 +20,7 @@ def show_menu(store):
 
     The current source/target is shown so the user knows where save will write.
     """
-    print("\nPersonal Notes App - CLI")
+    print(f"\nPersonal Notes App - CLI v{APP_VERSION}")
     print("------------------------")
     print(f"Current source/target: {store.get_source_label()}")
     print("1. List notes")

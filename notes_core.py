@@ -3,6 +3,8 @@ notes_core.py
 
 Shared application logic for the Personal Notes App.
 
+Version: 0.2.0
+
 Both the CLI application and the web application import this file so that:
 1. Notes are represented the same way.
 2. CSV loading and saving work the same way.
@@ -14,6 +16,9 @@ from slowly drifting apart.
 
 import csv
 from pathlib import Path
+
+
+APP_VERSION = "0.2.0"
 
 
 class NoteStore:
@@ -123,6 +128,7 @@ class NoteStore:
                 note_id_text = row["id"].strip()
                 note_text = row["text"].strip()
 
+                # Empty rows are skipped rather than causing the entire load to fail.
                 if note_id_text == "" or note_text == "":
                     continue
 

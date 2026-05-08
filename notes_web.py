@@ -3,6 +3,8 @@ notes_web.py
 
 Web interface for the Personal Notes App.
 
+Version: 0.2.0
+
 This version uses Flask because it is popular, beginner-friendly, and easy to
 maintain for small Python web applications.
 
@@ -11,7 +13,7 @@ The web interface uses the same NoteStore class as the CLI application.
 
 from flask import Flask, redirect, render_template_string, request, url_for
 
-from notes_core import NoteStore
+from notes_core import APP_VERSION, NoteStore
 
 
 app = Flask(__name__)
@@ -74,7 +76,7 @@ PAGE_TEMPLATE = """
     </style>
 </head>
 <body>
-    <h1>Personal Notes App</h1>
+    <h1>Personal Notes App v{{ app_version }}</h1>
 
     <p>
         Current source/target:
@@ -154,6 +156,7 @@ def index():
 
     return render_template_string(
         PAGE_TEMPLATE,
+        app_version=APP_VERSION,
         notes=store.list_notes(),
         source_label=store.get_source_label(),
         message=message
