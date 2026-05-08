@@ -1,8 +1,6 @@
-
-### File: `summary.md`
-
-```markdown
 # Application Summary
+
+Version: 0.2.1
 
 ## Application Name
 
@@ -10,38 +8,24 @@ Personal Notes App
 
 ## Current Version Scope
 
-This is a simple terminal-based Python data-entry application for personal notes.
+This version focuses only on getting the existing pytest test suite running correctly.
 
-## Capabilities
+No new note functionality was added in this version.
 
-The application currently supports:
+The main change is a pytest configuration file that ensures root-level application modules can be imported from test files.
 
-1. Listing notes  
-   The user can view all notes currently stored in the session.
+## Files Included
 
-2. Adding notes  
-   The user can enter a new note through the terminal.
-
-3. Removing notes  
-   The user can remove a note by choosing its displayed number.
-
-4. Starting with sample notes  
-   The application begins with three sample notes so the user can immediately test listing and removal.
-
-5. Running in a terminal  
-   The application does not require a graphical interface.
-
-## Data Storage
-
-Notes are stored in a Python list.
-
-Each note is currently stored as a plain string.
-
-Example:
-
-```python
-notes = [
-    "Review Python functions",
-    "Practice using lists",
-    "Write a small terminal app"
-]
+```text
+notes_core.py
+notes_cli.py
+notes_web.py
+requirements.txt
+README.md
+summary.md
+release_notes.md
+notes.csv
+tests/conftest.py
+tests/test_notes_core.py
+tests/test_notes_cli.py
+tests/test_notes_web.py
